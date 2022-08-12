@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Bushmaster</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-clock-o fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-text">
+                            <h4>平均响应时间</h4>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='meanTime')}">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                查看趋势图
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='meanTime')}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-area-chart fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-text">
+                            <h4>请求处理能力</h4>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='requestRate')}">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                查看趋势图
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='requestRate')}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-heartbeat fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-text">
+                            <h4>请求错误率</h4>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='errorPercentage')}">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                查看趋势图
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='errorPercentage')}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-male fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-text">
+                            <h4>并发数量趋势</h4>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='threadCount')}">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                查看趋势图
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='threadCount')}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-paper-plane fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-text">
+                            <h4>发送数据量趋势</h4>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='sentKBPerSecond')}">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                查看趋势图
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='sentKBPerSecond')}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-paper-plane-o fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-text">
+                            <h4>接收数据量趋势</h4>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='receiveKBPerSecond')}">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                查看趋势图
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a th:href="@{scenarioSampleResultChart(resultId=${resultId},dataType='receiveKBPerSecond')}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="sample_data_table" class="col-lg-12">
+            <table class="table table-bordered">
+                <thead>
+                <tr align="center">
+                    <th>请求名称</th>
+                    <th>平均响应时间(ms)</th>
+                    <th>最小响应时间(ms)</th>
+                    <th>最大响应时间(ms)</th>
+                    <th>标准方差</th>
+                    <th>错误百分比(%)</th>
+                    <th>每秒请求处理能力</th>
+                    <th>每秒接收数据量(KB/s)</th>
+                    <th>每秒发送数据量(KB/s)</th>
+                    <th>平均页面大小(Bytes)</th>
+                </tr>
+                </thead>
+                <tbody th:if="${not #lists.isEmpty(resultDataList)}">
+                    <tr th:each="resultData:${resultDataList}">
+                        <td th:text="${resultData.getSamplerLabel()}"></td>
+                        <td th:text="${resultData.getMeanTime()}"></td>
+                        <td th:text="${resultData.getMinTime()}"></td>
+                        <td th:text="${resultData.getMaxTime()}"></td>
+                        <td th:text="${resultData.getStandardDeviation()}"></td>
+                        <td th:text="${resultData.getErrorPercentage()}"></td>
+                        <td th:text="${resultData.getRequestRate()}"></td>
+                        <td th:text="${resultData.getReceiveKBPerSecond()}"></td>
+                        <td th:text="${resultData.getSentKBPerSecond()}"></td>
+                        <td th:text="${resultData.getAvgPageBytes()}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
